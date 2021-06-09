@@ -392,6 +392,9 @@ function closeModal() {
 }
 
 function cursorHand() {
+  if (window.innerWidth < 400) {
+    return;
+  }
   document.addEventListener("mousemove", (e) => {
     cursorMain.style.left = e.pageX + "px";
     cursorMain.style.top = e.pageY - window.scrollY + "px";

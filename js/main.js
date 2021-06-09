@@ -17,31 +17,41 @@ let Y;
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 const navLink = document.querySelectorAll(".nav-link");
-const sections = document.querySelectorAll("section");
-const sec1 = document.querySelector(".vibe");
-const sec2 = document.querySelector("#beer");
 
-sections.forEach((e) => {
-  console.log(e.offsetTop);
+/*--------------height header and margin top---------*/
+const marginTop = document.querySelector("header").offsetHeight;
+document.documentElement.style.setProperty(
+  "--headerHight",
+  `${marginTop - 5}px`
+);
+/*---------------------------------------------------*/
+/*---------------------active Section----------------*/
+const sections = document.querySelectorAll(".activeSec");
+const options = {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${marginTop}px 0px -${window.innerHeight - marginTop}px 0px`,
+};
+const observer = new IntersectionObserver(function (entries, observer) {
+  entries.forEach((entry) => {
+    const idSec = entry.target.id;
+    if (!entry.isIntersecting) {
+      return;
+    }
+    activeLInk = document.querySelector(".boldActive");
+    if (activeLInk) {
+      activeLInk.classList.remove("boldActive");
+    }
+    document.querySelector(`a[href="#${idSec}"]`).classList.add("boldActive");
+    // console.log(idSec);
+  });
+}, options);
+
+sections.forEach((section) => {
+  observer.observe(section);
 });
 
-window.addEventListener("scroll", checkSection);
-
-function checkSection() {
-  Y = window.scrollY;
-}
-
-while (Y < sec1.offsetTop) {
-  console.log(sec1.offsetTop);
-}
-
-// if (
-//   (window.scrollY > sec1.offsetTop - 137) &
-//   (window.scrollY < sec1.offsetTop + 20)
-// ) {
-//   document.querySelector(`a[href="#${sec1.id}"]`).classList.add("activeBold");
-//   console.log(sec1.id);
-// }
+/*-------------------------------------------------------*/
 
 document.querySelector(".modalWrapper .exit").addEventListener("click", hidden);
 document.querySelectorAll(".takeaway").forEach((e) => {
@@ -71,11 +81,14 @@ var i;
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function () {
     this.classList.toggle("active");
+
     var content = this.nextElementSibling;
     if (content.style.display === "block") {
       content.style.display = "none";
+      this.querySelector("span").innerHTML = "&#10095;";
     } else {
       content.style.display = "block";
+      this.querySelector("span").innerHTML = "&#9615;";
     }
   });
 }

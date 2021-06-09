@@ -648,6 +648,12 @@ a:active {
   color: blue;
 }
 
+.boldActive {
+  font-weight: bold;
+  color: var(--kkTahini);
+  font-family: var(--primaryFont);
+}
+
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 768px) {
@@ -804,5 +810,11 @@ a:active {
   .product img {
     width: 100% !important;
     max-height: 175px;
+  }
+
+  .boldActive {
+    font-weight: bold;
+    color: var(--kkRed);
+    font-family: var(--primaryFont);
   }
 }

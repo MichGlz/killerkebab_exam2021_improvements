@@ -134,6 +134,7 @@ p.time {
   justify-content: center;
   align-items: center;
   color: #000;
+  cursor: pointer;
 }
 
 #dateForm input {
@@ -158,6 +159,7 @@ button {
 
 .btnYellow {
   border: solid 1px var(--kkTahini);
+  cursor: pointer;
 }
 
 .btnYellow:hover {
@@ -171,6 +173,7 @@ button {
   top: 2em;
   right: 2em;
   color: #000;
+  cursor: pointer;
 }
 
 .toggleDisplay {

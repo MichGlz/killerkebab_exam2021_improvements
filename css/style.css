@@ -8,6 +8,7 @@
   --primaryFont: "Chelsea Market", cursive;
   --secondaryFont: "Raleway", sans-serif;
   --thirdFont: "Courier Prime", monospace;
+  --headerHight: 136px;
 }
 
 * {
@@ -18,7 +19,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 130px; /*check high of header*/
+  scroll-padding-top: var(--headerHight); /*check high of header*/
 }
 
 /* HEADER SETTINGS */
@@ -34,7 +35,7 @@ header {
 }
 
 .main-footerWrapper {
-  margin-top: 136px;
+  margin-top: var(--headerHight);
 }
 
 .hidden {
@@ -86,6 +87,7 @@ a {
   color: #fff;
   font-family: var(--secondaryFont);
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .nav-link:hover {
