@@ -30,12 +30,15 @@ const sections = document.querySelectorAll(".activeSec");
 const options = {
   root: null,
   threshold: 0,
-  rootMargin: `-${marginTop}px 0px -${window.innerHeight - marginTop}px 0px`,
+  rootMargin: `-${marginTop}px 0px -${
+    window.innerHeight - marginTop - 50
+  }px 0px`,
 };
 const observer = new IntersectionObserver(function (entries, observer) {
   entries.forEach((entry) => {
     const idSec = entry.target.id;
     if (!entry.isIntersecting) {
+      console.log("aqui estuve");
       return;
     }
     activeLInk = document.querySelector(".boldActive");
@@ -43,12 +46,13 @@ const observer = new IntersectionObserver(function (entries, observer) {
       activeLInk.classList.remove("boldActive");
     }
     document.querySelector(`a[href="#${idSec}"]`).classList.add("boldActive");
-    // console.log(idSec);
+    console.log(idSec);
   });
 }, options);
 
 sections.forEach((section) => {
   observer.observe(section);
+  console.log(section);
 });
 
 /*-------------------------------------------------------*/
