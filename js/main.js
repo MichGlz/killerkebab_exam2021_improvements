@@ -31,12 +31,15 @@ const options = {
   root: null,
   threshold: 0,
   rootMargin: `-${marginTop}px 0px -${
-    window.innerHeight - marginTop - 50
+    window.innerHeight - marginTop - 200
   }px 0px`,
 };
 const observer = new IntersectionObserver(function (entries, observer) {
   entries.forEach((entry) => {
-    const idSec = entry.target.id;
+    let idSec = entry.target.id;
+    if (idSec == "special") {
+      idSec = "beer";
+    }
     if (!entry.isIntersecting) {
       console.log("aqui estuve");
       return;
@@ -45,7 +48,9 @@ const observer = new IntersectionObserver(function (entries, observer) {
     if (activeLInk) {
       activeLInk.classList.remove("boldActive");
     }
-    document.querySelector(`a[href="#${idSec}"]`).classList.add("boldActive");
+    if (idSec != "hero") {
+      document.querySelector(`a[href="#${idSec}"]`).classList.add("boldActive");
+    }
     console.log(idSec);
   });
 }, options);
