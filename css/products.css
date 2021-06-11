@@ -422,6 +422,7 @@ img.modal {
   font-size: 1.2rem;
   font-weight: 600;
   padding: 3px 5px;
+  cursor: pointer;
 }
 
 #categoryFilter input:checked + label {
