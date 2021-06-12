@@ -652,6 +652,19 @@ a:active {
   font-weight: bold;
   color: var(--kkTahini);
   font-family: var(--primaryFont);
+  position: relative;
+}
+
+.boldActive::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--kkTahini);
+  position: absolute;
+  top: 50%;
+  left: -12px;
+  transform: translateY(-50%);
 }
 
 /* MEDIA QUERIES */

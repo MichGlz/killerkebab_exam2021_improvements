@@ -796,6 +796,17 @@ footer img {
   width: 50px;
 }
 
+.infoImg img {
+  transform-origin: left;
+  transition: 0.7s;
+}
+
+.infoImg img:hover {
+  transform: scale(1.5);
+  z-index: 10;
+  cursor: zoom-in;
+}
+
 /*-----------------------*/
 
 @media only screen and (max-width: 1540px) {
@@ -959,4 +970,10 @@ footer img {
   }
 
   /*-----------------*/
+
+  .infoImg img:hover {
+    transform: scale(3.5);
+    z-index: 10;
+    cursor: zoom-in;
+  }
 }
