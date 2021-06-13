@@ -5,6 +5,7 @@
   --primaryFont: "Chelsea Market", sans-serif;
   --secondaryFont: "Raleway", sans-serif;
   --thirdFont: "Courier Prime", monospace;
+  --handHight: calc(2.5em + 1vw);
 }
 /* GENERAL */
 
@@ -42,7 +43,7 @@ img.heroBG {
 } */
 h1 {
   font-family: var(--primaryFont);
-  font-size: 2.5em;
+  font-size: calc(2.5em + 1vw);
   color: var(--kkRed);
   margin: 1.5em 0;
   text-transform: uppercase;
@@ -666,6 +667,63 @@ a:active {
   left: -12px;
   transform: translateY(-50%);
 }
+h1 {
+  position: relative;
+  z-index: 2;
+}
+h1::after {
+  content: "";
+  width: 8vw;
+  height: 6vw;
+  background-image: url(../assets/handSurf.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 90%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+#menu h1::after {
+  width: 6vw;
+  height: 6vw;
+  left: 98%;
+  background-image: url(../assets/handPeace.svg);
+}
+
+:is(#special, #find) h1::after {
+  background-image: none;
+}
+
+:is(.tunes, .hashtag) h2 {
+  position: relative;
+  z-index: 2;
+}
+
+:is(.tunes, .hashtag) h2::after {
+  content: "";
+  width: 5vw;
+  height: 4vw;
+  background-image: url(../assets/handRock.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 98%;
+  top: 50%;
+  transform: translateY(-60%);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.hashtag h2::after {
+  left: -25%;
+}
+
+.tunes h2::after {
+  background-image: url(../assets/handOK.svg);
+}
 
 /* MEDIA QUERIES */
 
@@ -829,5 +887,26 @@ a:active {
     font-weight: bold;
     color: var(--kkRed);
     font-family: var(--primaryFont);
+  }
+
+  h1::after {
+    width: 20vw;
+    height: 16vw;
+  }
+
+  #menu h1::after {
+    width: 20vw;
+    height: 20vw;
+    left: 80%;
+  }
+
+  :is(.tunes, .hashtag) h2 {
+    position: relative;
+    z-index: 2;
+  }
+
+  :is(.tunes, .hashtag) h2::after {
+    width: 20vw;
+    height: 20vw;
   }
 }

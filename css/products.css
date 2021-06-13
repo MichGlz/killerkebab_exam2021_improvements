@@ -798,7 +798,7 @@ footer img {
 
 .infoImg img {
   transform-origin: left;
-  transition: 0.7s;
+  transition: 0.5s;
 }
 
 .infoImg img:hover {
