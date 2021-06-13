@@ -41,7 +41,7 @@ const observer = new IntersectionObserver(function (entries, observer) {
       idSec = "beer";
     }
     if (!entry.isIntersecting) {
-      console.log("aqui estuve");
+      // console.log("aqui estuve");
       return;
     }
     activeLInk = document.querySelector(".boldActive");
@@ -51,13 +51,13 @@ const observer = new IntersectionObserver(function (entries, observer) {
     if (idSec != "hero") {
       document.querySelector(`a[href="#${idSec}"]`).classList.add("boldActive");
     }
-    console.log(idSec);
+    // console.log(idSec);
   });
 }, options);
 
 sections.forEach((section) => {
   observer.observe(section);
-  console.log(section);
+  // console.log(section);
 });
 
 /*-------------------------------------------------------*/

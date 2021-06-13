@@ -36,7 +36,7 @@ document.querySelector(".logo").addEventListener("click", () => {
 //-----------ifs---------
 
 if (cartLenght > 3) {
-  console.log("cartLeng>3");
+  // console.log("cartLeng>3");
   calculateTotal();
 }
 
@@ -56,7 +56,7 @@ if ((KKcategory == "all") | !KKcategory) {
 /*--------------------------------*/
 
 if (comboSide) {
-  console.log(comboSide);
+  // console.log(comboSide);
   addComboProducts();
 }
 
@@ -65,8 +65,8 @@ if (!dateTimeX) {
     window.addEventListener("load", calcToday);
   } else {
     document.querySelector(".dateModalWrapper").classList.add("hidden");
-    console.log(localStorage.getItem("KKpickUpDate"));
-    console.log(localStorage.getItem("KKpickUpTime"));
+    // console.log(localStorage.getItem("KKpickUpDate"));
+    // console.log(localStorage.getItem("KKpickUpTime"));
     orderDate = localStorage.getItem("KKpickUpDate");
     orderTime = localStorage.getItem("KKpickUpTime");
     document.querySelector(".dateP").textContent = orderDate;
@@ -81,7 +81,7 @@ if (dateTimeX) {
   orderTime = timeTimeX;
   localStorage.setItem("KKpickUpTime", timeTimeX);
   localStorage.setItem("KKpickUpDate", dateTimeX);
-  console.log(orderTime + orderDate);
+  // console.log(orderTime + orderDate);
 }
 
 /*------------------------------------------------*/
@@ -211,7 +211,7 @@ function showProductList(products) {
 function soda() {
   let btnSoda =
     this.parentElement.parentElement.parentElement.querySelector(".btn-add");
-  console.log(btnSoda.dataset.id);
+  // console.log(btnSoda.dataset.id);
   btnSoda.style.pointerEvents = "auto";
   btnSoda.style.opacity = "1";
 }
@@ -219,7 +219,7 @@ function soda() {
 //calculate cart total
 function calculateTotal() {
   let orderTotal = 0;
-  console.log("hola dede la formA");
+  // console.log("hola dede la formA");
   document.querySelectorAll(".price-each span").forEach((span) => {
     orderTotal += Number(span.textContent);
     document.querySelectorAll(".totalPrice").forEach((total) => {
@@ -254,7 +254,7 @@ function popUpKombo(e) {
   let x = this.dataset.id;
   comboI = localStorage.getItem("comboI");
   logComboICounting();
-  console.log(JSON.parse(localStorage.getItem("orderKK")));
+  // console.log(JSON.parse(localStorage.getItem("orderKK")));
   const bags = JSON.parse(localStorage.getItem("orderKK"));
   const index = bags.findIndex((bag) => bag._id == x);
   newComboId = `${x}-combo${comboI}`;
@@ -262,8 +262,8 @@ function popUpKombo(e) {
   comboI++;
   localStorage.setItem("orderKK", []);
   localStorage.setItem("orderKK", JSON.stringify(bags));
-  console.log(comboI);
-  console.log(bags);
+  // console.log(comboI);
+  // console.log(bags);
 
   CART.init();
 
@@ -332,7 +332,7 @@ function popUpInfo() {
 }
 
 function slidder() {
-  console.log("slidder");
+  // console.log("slidder");
   nameCustomer = document.querySelector("#name").value;
   customerRock = nameCustomer.split(" ")[0];
   document.querySelector(".customerName").textContent = customerRock;
@@ -415,7 +415,7 @@ function cursorHand() {
 /*------------------------------serch/post customer by email-------*/
 
 function searchCustomer() {
-  console.log("search");
+  // console.log("search");
   const urlSearchCutomer = `https://reicpe-9cc2.restdb.io/rest/killer-kebab-customers?q={"email":"${emailCustomer}"}`;
 
   fetch(urlSearchCutomer, {
@@ -426,11 +426,11 @@ function searchCustomer() {
   })
     .then((res) => res.json())
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       if (response.length < 1) {
         postCustomer();
       } else {
-        console.log(response[0]._id);
+        // console.log(response[0]._id);
         idCustomer = response[0]._id;
       }
     })
@@ -455,9 +455,9 @@ function searchCustomer() {
     })
       .then((res) => res.json()) // <= it was necessary
       .then((response) => {
-        console.log(response);
-        console.log("newCustomer");
-        console.log(response._id);
+        // console.log(response);
+        // console.log("newCustomer");
+        // console.log(response._id);
         idCustomer = response._id;
         // searchCustomer();
       })
@@ -470,8 +470,8 @@ function searchCustomer() {
 /*---------------------------------post order-------------------*/
 
 function postOrder() {
-  console.log("postOrder");
-  console.log(idCustomer);
+  // console.log("postOrder");
+  // console.log(idCustomer);
   const payload = {
     customer: idCustomer,
     cart: JSON.parse(localStorage.getItem("orderKK")),
@@ -491,7 +491,7 @@ function postOrder() {
   })
     .then((res) => res.json())
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       localStorage.setItem("orderKK", []);
       localStorage.removeItem("KKpickUpTime");
       localStorage.removeItem("KKpickUpDate");
@@ -525,7 +525,7 @@ function calcToday() {
   minMonth = month[d[1]];
   minDay = d[2];
   minYear = d[3];
-  console.log(d);
+  // console.log(d);
   minDate = `${minYear}-${minMonth}-${minDay}`;
   document.querySelectorAll(`.dateselection`).forEach((e) => {
     e.setAttribute("min", minDate);
@@ -550,7 +550,7 @@ function calcToday() {
   if (minHour < 10) {
     minHour = "0" + minHour;
   }
-  console.log(minHour + ":" + minMinute);
+  // console.log(minHour + ":" + minMinute);
   minTime = minHour + ":" + minMinute;
   document.querySelectorAll(".timeselection").forEach((e) => {
     e.setAttribute("min", minTime);

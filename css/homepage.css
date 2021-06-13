@@ -694,7 +694,7 @@ h1::after {
 }
 
 :is(#special, #find) h1::after {
-  background-image: none;
+  display: none;
 }
 
 :is(.tunes, .hashtag) h2 {
