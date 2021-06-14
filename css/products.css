@@ -362,8 +362,8 @@ img.modal {
   background-image: url(../assets/kebab-cursor.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  width: 45px;
-  height: 45px;
+  width: 65px;
+  height: 65px;
   position: fixed;
   border-bottom: none;
   /*transition: position 0.2s;*/
