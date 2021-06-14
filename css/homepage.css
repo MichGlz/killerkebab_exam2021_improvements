@@ -693,7 +693,7 @@ h1::after {
   background-image: url(../assets/handPeace.svg);
 }
 
-:is(#special, #find) h1::after {
+:is(#special, #find, .optionsModal) h1::after {
   display: none;
 }
 
