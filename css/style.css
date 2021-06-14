@@ -103,6 +103,29 @@ a {
   width: 100%;
 }
 
+a.btnYellow {
+  font-family: var(--secondaryFont);
+  color: #000;
+  background-color: var(--kkTahini);
+  padding: 0.5em 1.2em;
+  font-weight: 500;
+  border: solid 1px var(--kkTahini);
+  text-transform: uppercase;
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.btnYellow {
+  border: solid 1px var(--kkTahini);
+  cursor: pointer;
+}
+
+.btnYellow:hover {
+  background-color: black;
+  color: var(--kkTahini);
+}
+
 /* FOOTER */
 footer {
   display: flex;
