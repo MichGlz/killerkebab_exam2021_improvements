@@ -94,6 +94,19 @@ main {
   font-size: 1.1rem;
 }
 
+.pickUpForm {
+  padding: 1rem;
+  background-color: var(--kkTahini);
+}
+
+.pickUpForm button {
+  padding: 0.5rem 1rem;
+}
+
+.pickUpForm label {
+  font-size: 1.2rem;
+}
+
 ul li {
   margin-left: 1rem;
   font-weight: bold;
