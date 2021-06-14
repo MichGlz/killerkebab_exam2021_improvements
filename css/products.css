@@ -359,7 +359,7 @@ img.modal {
 .cursor,
 .cursorMain {
   display: block;
-  background-image: url(../assets/pointerHand-v2.svg);
+  background-image: url(../assets/kebab-cursor.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 45px;

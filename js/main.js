@@ -97,7 +97,7 @@ for (i = 0; i < coll.length; i++) {
       this.querySelector("span").innerHTML = "&#10095;";
     } else {
       content.style.display = "block";
-      this.querySelector("span").innerHTML = "&#9615;";
+      this.querySelector("span").innerHTML = "&#10094;";
     }
   });
 }
