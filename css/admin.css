@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* GENERAL SETTINGS */
+:root {
+  --kkRed: #ad3919;
+  --kkTahini: #eeb755;
+  --kkBg: #f5f3e6;
+  --primaryFont: "Chelsea Market", cursive;
+  --secondaryFont: "Raleway", sans-serif;
+  --thirdFont: "Courier Prime", monospace;
+  --headerAdminHight: 15vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--headerHight); /*check high of header*/
+}
+
+body {
+  background-color: var(--kkBg);
+  font-family: var(--thirdFont);
+}
+header {
+  height: var(--headerAdminHight);
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+main {
+  margin-top: var(--headerAdminHight);
+  width: 80%;
+  min-height: 100vh;
+  background-color: var(--kkRed);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ordersListContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.list {
+  width: 45%;
+  min-height: 80vh;
+  /* background-color: yellowgreen; */
+  padding: 2rem;
+}
+
+.list h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.order {
+  background-color: var(--kkTahini);
+  background: linear-gradient(
+    133deg,
+    rgb(216, 200, 156) 0%,
+    rgb(114, 103, 88) 87%
+  );
+  min-height: 40vh;
+  width: 100%;
+  border-radius: 0 0 50px 0;
+  border: solid 1px black;
+  padding: 1rem;
+}
+
+.order + .order {
+  margin-top: 1.5rem;
+}
+
+.order * + * {
+  margin-top: 0.5rem;
+}
+
+.contact span {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.pickUp input {
+  pointer-events: none;
+  font-size: 1.1rem;
+}
+
+ul li {
+  margin-left: 1rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+li ul {
+  margin-left: 1rem;
+}
+
+li ul li {
+  font-weight: normal;
+  font-size: 1.1rem;
+}
+
+.listContainer {
+  margin: 2rem 0;
+}

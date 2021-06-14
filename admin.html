@@ -2,9 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Enjoy homemade, delicious & healthy takeaway inspired by the Middle East. Fresh sourdough. Crunchy vegetarian falafels. Tasty quality lamb. "
+    />
+    <meta
+      name="keywords"
+      content="kebab, falafel, homemade, sourdough, copenhagen"
+    />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <title>
+      Killer Kebab | Copenhagen's #1 Unique Kebab & Falafel. Try it out!
+    </title>
   </head>
-  <body></body>
+  <body>
+    <header></header>
+
+    <main>
+      <div class="ordersListContainer">
+        <div class="toDo list">
+          <h1>To Do</h1>
+          <div class="ordersContainer"></div>
+        </div>
+
+        <div class="done list">
+          <h1>Done</h1>
+          <div class="ordersContainer"></div>
+        </div>
+      </div>
+    </main>
+    <template class="orderTemplate">
+      <div class="order">
+        <h2>Name:<span class="name"></span></h2>
+        <p class="contact">Telefon No.:<span class="mobile"></span></p>
+        <p class="contact">Email:<span class="eMail"></span></p>
+        <div class="listContainer">
+          <h2>Order:</h2>
+          <ul class="products"></ul>
+        </div>
+        <p class="coments"></p>
+        <label class="pickUp">Date:<input type="date" value="" class="date"></input></label>
+        <label class="pickUp">Time:<input type="time"  value="" class="time"></input></label>
+        <form name="pickUp" action="">
+          <div class="inputContainer">
+            <input id="pickUp" type="checkbox" />
+            <label for="pickUp">Picked up</label>
+          </div>
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+    </template>
+    <footer></footer>
+    <script src="js/orders.js"></script>
+  </body>
 </html>
