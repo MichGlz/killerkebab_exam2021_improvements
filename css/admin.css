@@ -109,6 +109,10 @@ main {
   font-size: 1.2rem;
 }
 
+label.pickUp {
+  display: block;
+}
+
 .pickUp input {
   pointer-events: none;
   font-size: 1.1rem;
