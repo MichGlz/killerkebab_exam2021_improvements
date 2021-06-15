@@ -20,7 +20,13 @@
     </title>
   </head>
   <body>
-    <header></header>
+    <header>
+      <img
+              src="assets/logo-white.svg"
+              alt="peace sign next to written killer kebab"
+          />
+      <h1>ORDERS</h1>
+    </header>
 
     <main>
       <div class="ordersListContainer">
@@ -30,8 +36,10 @@
         </div>
 
         <div class="done list">
-          <h1>Done</h1>
-          <div class="ordersContainer"></div>
+          <h1>Picked up</h1>
+          <div class="ordersContainer">
+            <div></div>
+          </div>
         </div>
       </div>
     </main>
@@ -45,12 +53,13 @@
           <ul class="products"></ul>
         </div>
         <p class="coments"></p>
-        <label class="pickUp">Date:<input type="date" value="" class="date"></input></label>
-        <label class="pickUp">Time:<input type="time"  value="" class="time"></input></label>
+        <!-- <label class="pickUp">Date & Time:<input type="datetime-local" value="" class="dateTime"></input></label> -->
+        <label class="pickUp">Date:<input type="date" value="" class="date" readonly="readonly"></input></label>
+        <label class="pickUp">Time:<input type="time"  value="" class="time" readonly="readonly"></input></label>
         <form class="pickUpForm" name="pickUp" action="">
           <div class="inputContainer">
-            <input id="pickUp" type="checkbox" />
-            <label for="pickUp">Picked up</label>
+            <input id="" type="checkbox" required />
+            <label for="">Picked up</label>
           </div>
           <button type="submit">SUBMIT</button>
         </form>

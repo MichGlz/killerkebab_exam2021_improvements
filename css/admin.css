@@ -8,7 +8,7 @@
   --primaryFont: "Chelsea Market", cursive;
   --secondaryFont: "Raleway", sans-serif;
   --thirdFont: "Courier Prime", monospace;
-  --headerAdminHight: 15vh;
+  --headerAdminHight: 10vh;
 }
 
 * {
@@ -33,13 +33,19 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  color: white;
+  font-family: var(--primaryFont);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 35vw;
 }
 
 main {
   margin-top: var(--headerAdminHight);
   width: 80%;
   min-height: 100vh;
-  background-color: var(--kkRed);
+  /* background-color: var(--kkRed); */
   margin-left: auto;
   margin-right: auto;
 }
@@ -60,6 +66,12 @@ main {
 .list h1 {
   text-align: center;
   margin-bottom: 2rem;
+  color: #ad3919;
+  padding: 1rem;
+  width: 100%;
+  position: sticky;
+  top: var(--headerAdminHight);
+  background-color: var(--kkBg);
 }
 
 .order {
@@ -74,6 +86,14 @@ main {
   border-radius: 0 0 50px 0;
   border: solid 1px black;
   padding: 1rem;
+}
+
+.done .order {
+  background: linear-gradient(
+    135deg,
+    rgb(255, 254, 250) 10%,
+    rgb(124, 124, 124) 80%
+  );
 }
 
 .order + .order {
@@ -92,18 +112,32 @@ main {
 .pickUp input {
   pointer-events: none;
   font-size: 1.1rem;
+  padding-left: 1rem;
 }
 
 .pickUpForm {
+  margin-top: 1.5rem;
   padding: 1rem;
   background-color: var(--kkTahini);
+  border-radius: 0 0 40px 0;
 }
 
 .pickUpForm button {
   padding: 0.5rem 1rem;
 }
 
+.inputContainer {
+  display: flex;
+  align-items: center;
+}
+
+.pickUpForm input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .pickUpForm label {
+  margin-left: 1.2rem;
   font-size: 1.2rem;
 }
 

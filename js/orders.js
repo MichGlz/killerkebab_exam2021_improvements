@@ -1,6 +1,6 @@
 window.addEventListener("load", fetchOrdersList);
 
-const urlFetch = "https://reicpe-9cc2.restdb.io/rest/killer-kebab-orders";
+const urlFetch = `https://reicpe-9cc2.restdb.io/rest/killer-kebab-orders?q={}&h={"$orderby": {"dateO": 1, "timeO": 1}}`;
 
 function fetchOrdersList() {
   fetch(urlFetch, {
@@ -40,6 +40,19 @@ function showOrdersList(orders) {
     timePickUp = timePickUp.split("T")[1];
     timePickUp = timePickUp.split(".")[0];
     copy.querySelector(".pickUp .time").value = timePickUp;
+    // copy.querySelector(
+    //   ".pickUp .dateTime"
+    // ).value = `${datePickUp}T${timePickUp}`;
+    copy
+      .querySelector(".inputContainer input")
+      .setAttribute("id", `p-${order._id}`);
+    copy
+      .querySelector(".inputContainer input")
+      .setAttribute("data-id", order._id);
+    copy
+      .querySelector(".inputContainer label")
+      .setAttribute("for", `p-${order._id}`);
+
     order.cart.forEach((p) => {
       if (p.category === "combo") {
         copy.querySelector(
@@ -53,8 +66,42 @@ function showOrdersList(orders) {
     });
 
     //grab the proper parent for
-    const parent = document.querySelector(".toDo .ordersContainer");
+    let parent;
+    if (order.pickedUp) {
+      copy.querySelector(".pickUpForm").remove();
+      parent = document.querySelector(".done .ordersContainer");
+      parent.insertBefore(copy, parent.childNodes[0]);
+    } else {
+      parent = document.querySelector(".toDo .ordersContainer");
+      parent.appendChild(copy);
+    }
+
     //append
-    parent.appendChild(copy);
+  });
+  document.querySelectorAll(".pickUpForm").forEach((e) => {
+    e.addEventListener("submit", handleSubmit);
   });
 }
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log("submite");
+  console.log(e.target.querySelector("input").dataset.id);
+
+  orderID = e.target.querySelector("input").dataset.id;
+  fetch(`https://reicpe-9cc2.restdb.io/rest/killer-kebab-orders/${orderID}`, {
+    method: "PATCH",
+    headers: {
+      "x-apikey": "606d5dcef5535004310074f4",
+      "Content-Type": "application/json",
+    },
+    body: '{"pickedUp":true}',
+  })
+    .then((response) => {
+      console.log(response);
+      location.href = `admin.html`;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
