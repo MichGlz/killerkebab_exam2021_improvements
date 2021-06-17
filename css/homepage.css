@@ -63,6 +63,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(../assets/hands.svg);
 }
 
 .banish {
@@ -728,6 +729,12 @@ h1::after {
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 768px) {
+  /* LOADER */
+
+  .loader {
+    background-size: 50%;
+  }
+
   video.heroBG {
     display: none;
   }
