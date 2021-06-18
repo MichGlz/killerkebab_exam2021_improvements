@@ -24,7 +24,7 @@ function fetchOrdersList() {
         showOrdersList(response);
       } else {
         if (ordersLength != firstOrdersLength) {
-          console.log("hola lista mas larga");
+          // console.log("hola lista mas larga");
           location.href = "admin.html";
         }
       }
