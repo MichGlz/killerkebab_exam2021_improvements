@@ -1,4 +1,7 @@
 window.addEventListener("load", fetchOrdersList);
+fetchLoad = false;
+let ordersLength;
+let firstOrdersLength;
 
 const urlFetch = `https://reicpe-9cc2.restdb.io/rest/killer-kebab-orders?q={}&h={"$orderby": {"dateO": 1, "timeO": 1}}`;
 
@@ -11,12 +14,28 @@ function fetchOrdersList() {
   })
     .then((res) => res.json())
     .then((response) => {
-      console.log(response);
-      showOrdersList(response);
+      // console.log(response);
+      ordersLength = response.length;
+
+      if (!fetchLoad) {
+        fetchLoad = true;
+        firstOrdersLength = ordersLength;
+
+        showOrdersList(response);
+      } else {
+        if (ordersLength != firstOrdersLength) {
+          console.log("hola lista mas larga");
+          location.href = "admin.html";
+        }
+      }
+      // console.log(firstOrdersLength);
+      // console.log(ordersLength);
     })
     .catch((err) => {
       console.error(err);
     });
+
+  setTimeout(fetchOrdersList, 60000);
 }
 
 function showOrdersList(orders) {
