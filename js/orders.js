@@ -44,59 +44,53 @@ function showOrdersList(orders) {
 
   //grab the template
   const template = document.querySelector("template.orderTemplate").content;
-  orders.forEach((order) => {
-    //clone
-    const copy = template.cloneNode(true);
-    //adjust stuff
+  orders.forEach((order, i) => {
+    //check if order has a customer
+    if (order.customer) {
+      //clone
+      const copy = template.cloneNode(true);
+      //adjust stuff
 
-    copy.querySelector(".name").textContent = order.customer[0].name;
-    copy.querySelector(".mobile").textContent = order.customer[0].telephoneNo;
-    copy.querySelector(".eMail").textContent = order.customer[0].email;
-    let datePickUp = order.dateO;
-    datePickUp = datePickUp.split("T")[0];
-    copy.querySelector(".pickUp .date").value = datePickUp;
-    let timePickUp = order.timeO;
-    timePickUp = timePickUp.split("T")[1];
-    timePickUp = timePickUp.split(".")[0];
-    copy.querySelector(".pickUp .time").value = timePickUp;
-    // copy.querySelector(
-    //   ".pickUp .dateTime"
-    // ).value = `${datePickUp}T${timePickUp}`;
-    copy
-      .querySelector(".inputContainer input")
-      .setAttribute("id", `p-${order._id}`);
-    copy
-      .querySelector(".inputContainer input")
-      .setAttribute("data-id", order._id);
-    copy
-      .querySelector(".inputContainer label")
-      .setAttribute("for", `p-${order._id}`);
+      copy.querySelector(".name").textContent = order.customer[0].name;
+      copy.querySelector(".mobile").textContent = order.customer[0].telephoneNo;
+      copy.querySelector(".eMail").textContent = order.customer[0].email;
+      let datePickUp = order.dateO;
+      datePickUp = datePickUp.split("T")[0];
+      copy.querySelector(".pickUp .date").value = datePickUp;
+      let timePickUp = order.timeO;
+      timePickUp = timePickUp.split("T")[1];
+      timePickUp = timePickUp.split(".")[0];
+      copy.querySelector(".pickUp .time").value = timePickUp;
+      // copy.querySelector(
+      //   ".pickUp .dateTime"
+      // ).value = `${datePickUp}T${timePickUp}`;
+      copy.querySelector(".inputContainer input").setAttribute("id", `p-${order._id}`);
+      copy.querySelector(".inputContainer input").setAttribute("data-id", order._id);
+      copy.querySelector(".inputContainer label").setAttribute("for", `p-${order._id}`);
 
-    order.cart.forEach((p) => {
-      if (p.category === "combo") {
-        copy.querySelector(
-          ".products"
-        ).innerHTML += `<li>${p.qty} / ${p.product} ${p.description}</li>`;
+      order.cart.forEach((p) => {
+        if (p.category === "combo") {
+          copy.querySelector(".products").innerHTML += `<li>${p.qty} / ${p.product} ${p.description}</li>`;
+        } else {
+          copy.querySelector(".products").innerHTML += `<li>${p.qty} / ${p.product}</li>`;
+        }
+      });
+
+      //grab the proper parent for
+      let parent;
+      if (order.pickedUp) {
+        copy.querySelector(".pickUpForm").remove();
+        parent = document.querySelector(".done .ordersContainer");
+        //append
+        parent.insertBefore(copy, parent.childNodes[0]);
       } else {
-        copy.querySelector(
-          ".products"
-        ).innerHTML += `<li>${p.qty} / ${p.product}</li>`;
+        parent = document.querySelector(".toDo .ordersContainer");
+        //append
+        parent.appendChild(copy);
       }
-    });
-
-    //grab the proper parent for
-    let parent;
-    if (order.pickedUp) {
-      copy.querySelector(".pickUpForm").remove();
-      parent = document.querySelector(".done .ordersContainer");
-      parent.insertBefore(copy, parent.childNodes[0]);
-    } else {
-      parent = document.querySelector(".toDo .ordersContainer");
-      parent.appendChild(copy);
     }
-
-    //append
   });
+
   document.querySelectorAll(".pickUpForm").forEach((e) => {
     e.addEventListener("submit", handleSubmit);
   });
