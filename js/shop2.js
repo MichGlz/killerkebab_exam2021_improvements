@@ -147,7 +147,8 @@ function showProductList(products) {
     
     function addPortfolioToUrl(url){
       const urlArr = url.split('killerKebab/');
-      return urlArr.join('portfolio/killerKebab/');
+
+      return urlArr.join('projects/killerKebab/');      
     }
     
     //adjust stuff
