@@ -144,8 +144,13 @@ function showProductList(products) {
   products.forEach((product) => {
     //clone
     const copy = template.cloneNode(true);
+    
+    function addPortfolioToUrl(url){
+      const urlArr = url.split('killerKebab/');
+      return urlArr.join('portfolio/killerKebab/');
+    }
+    
     //adjust stuff
-
     copy.querySelector("h2").textContent = product.product;
     copy.querySelector(".price").textContent = product.price + ",-";
     copy.querySelector("img").src = product.image + ".jpg";
