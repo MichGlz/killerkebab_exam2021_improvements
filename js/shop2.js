@@ -144,20 +144,14 @@ function showProductList(products) {
   products.forEach((product) => {
     //clone
     const copy = template.cloneNode(true);
-    
-    function addPortfolioToUrl(url){
-      const urlArr = url.split('killerKebab/');
 
-      return urlArr.join('projects/killerKebab/');      
-    }
-    
     //adjust stuff
     copy.querySelector("h2").textContent = product.product;
     copy.querySelector(".price").textContent = product.price + ",-";
-    copy.querySelector("img").src = addPortfolioToUrl(product.image) + ".jpg";
-    copy.querySelector("img").srcset = addPortfolioToUrl(product.image) + ".webp";
+    copy.querySelector("img").src = product.image + ".jpg";
+    copy.querySelector("img").srcset = product.image + ".webp";
     copy.querySelector("img").alt = product.product;
-    copy.querySelector(".input-image").value = addPortfolioToUrl(product.image);
+    copy.querySelector(".input-image").value = product.image;
     copy.querySelector(".category").value = product.category;
 
     if (product.description) {
